@@ -3,7 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Schritte international 5 · Inhaltsverzeichnis</title>
+<meta name="theme-color" content="#d8552f">
+<link rel="manifest" href="manifest.json">
+<title>Schritte international Niveau B1/1 · Inhaltsverzeichnis</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap');
 
@@ -341,7 +343,7 @@
 <body>
 
 <div id="mobile-bar">
-  <div class="brand">Schritte international 5</div>
+  <div class="brand">Schritte international Niveau B1/1</div>
   <div style="display:flex; align-items:center; gap:12px;">
     <div id="toggle-wrap-mobile" style="display:flex; align-items:center; gap:8px; font-family:'IBM Plex Mono', monospace; font-size:.68rem; letter-spacing:.06em; text-transform:uppercase; color:var(--ink-soft);">
       <span class="lang-lbl active" data-lbl="de-m">DE</span>
@@ -354,7 +356,7 @@
 <div id="overlay"></div>
 
 <aside id="sidebar">
-  <div class="brand">Schritte international 5<small>Kursbuch · Inhalt · Niveau B1/1</small></div>
+  <div class="brand">Schritte international Niveau B1/1<small>Kursbuch · Inhaltsverzeichnis</small></div>
 
   <div id="toggle-wrap">
     <span class="lang-lbl active" data-lbl="de">DE</span>
@@ -574,7 +576,7 @@ UNITS.forEach((u, idx) => {
     <h2 class="section-heading"><span class="de-text">Grammatik</span><span class="en-text">Grammar</span></h2>
     <div class="grammar-block">${grammarHtml}</div>
 
-    <footer class="credits">Schritte international 5 · Kursbuch B1/1 · Inhalt digitalisiert</footer>
+    <footer class="credits">Schritte international Niveau B1/1 · Kursbuch · Inhaltsverzeichnis digitalisiert</footer>
   `;
   main.appendChild(page);
 });
@@ -615,6 +617,11 @@ hamburger.addEventListener('click', () => {
   document.body.classList.toggle('nav-open');
 });
 overlay.addEventListener('click', closeDrawer);
+</script>
+<script>
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('sw.js');
+}
 </script>
 </body>
 </html>
