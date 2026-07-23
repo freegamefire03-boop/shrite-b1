@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Schritte international 5 · Inhaltsverzeichnis</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap');
+
+  :root{
+    --paper:#f2ece0;
+    --paper-2:#ffffff;
+    --ink:#2a2420;
+    --ink-soft:#6b6259;
+    --rule:#d8cfbe;
+    --u1:#d8552f;
+    --u2:#8fa832;
+    --u3:#2f7ea3;
+    --u4:#c23b3b;
+    --u5:#3f8a5d;
+    --u6:#3f9bb0;
+    --u7:#8a2b3d;
+    --accent: var(--u1);
+  }
+
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    font-family:'IBM Plex Sans', sans-serif;
+    background:var(--paper);
+    color:var(--ink);
+    display:flex;
+    min-height:100vh;
+  }
+
+  /* ---------- SIDEBAR ---------- */
+  #sidebar{
+    width:270px;
+    flex-shrink:0;
+    background:var(--paper-2);
+    border-right:1px solid var(--rule);
+    padding:28px 16px 28px 22px;
+    position:sticky;
+    top:0;
+    height:100vh;
+    overflow-y:auto;
+  }
+  .brand{
+    font-family:'Fraunces', serif;
+    font-weight:700;
+    font-size:1.05rem;
+    line-height:1.25;
+    margin-bottom:4px;
+    color:var(--ink);
+  }
+  .brand small{
+    display:block;
+    font-family:'IBM Plex Mono', monospace;
+    font-weight:500;
+    font-size:.62rem;
+    letter-spacing:.09em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    margin-top:4px;
+  }
+  #toggle-wrap{
+    margin:20px 0 22px 0;
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:.68rem;
+    letter-spacing:.06em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+  }
+  .switch{
+    position:relative;
+    width:46px;
+    height:24px;
+    background:var(--ink);
+    border-radius:20px;
+    cursor:pointer;
+    flex-shrink:0;
+    transition:background .25s ease;
+  }
+  .switch .knob{
+    position:absolute;
+    top:3px; left:3px;
+    width:18px; height:18px;
+    border-radius:50%;
+    background:var(--paper);
+    transition:transform .25s cubic-bezier(.4,0,.2,1);
+  }
+  body.en .switch .knob{ transform:translateX(22px); }
+  body.en .switch{ background:var(--accent); }
+  .lang-lbl{ transition:color .2s ease; }
+  .lang-lbl.active{ color:var(--ink); font-weight:600; }
+
+  nav ul{ list-style:none; margin:0; padding:0; }
+  nav li + li{ margin-top:2px; }
+  .unit-link{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    padding:9px 8px;
+    border-radius:7px;
+    text-decoration:none;
+    color:var(--ink);
+    cursor:pointer;
+    transition:background .15s ease;
+  }
+  .unit-link:hover{ background:var(--paper); }
+  .unit-link.active{ background:var(--paper); box-shadow:inset 3px 0 0 var(--u-color); }
+  .badge{
+    width:26px; height:26px;
+    border-radius:6px;
+    background:var(--u-color);
+    color:#fff;
+    font-family:'Fraunces', serif;
+    font-weight:700;
+    font-size:.9rem;
+    display:flex; align-items:center; justify-content:center;
+    flex-shrink:0;
+  }
+  .unit-link .label{ font-size:.83rem; line-height:1.2; }
+  .unit-link .label .num{
+    display:block;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:.6rem;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+  }
+
+  /* ---------- MAIN ---------- */
+  main{
+    flex:1;
+    padding:48px 56px 80px;
+    max-width:880px;
+  }
+  .unit-page{ display:none; }
+  .unit-page.active{ display:block; animation:fade .28s ease; }
+  @keyframes fade{ from{opacity:0; transform:translateY(4px);} to{opacity:1; transform:none;} }
+
+  .unit-header{
+    display:flex;
+    align-items:flex-start;
+    gap:20px;
+    margin-bottom:6px;
+  }
+  .unit-header .badge-lg{
+    width:56px; height:56px;
+    border-radius:10px;
+    background:var(--u-color);
+    color:#fff;
+    font-family:'Fraunces', serif;
+    font-weight:700;
+    font-size:1.8rem;
+    display:flex; align-items:center; justify-content:center;
+    flex-shrink:0;
+  }
+  .unit-title{
+    font-family:'Fraunces', serif;
+    font-weight:700;
+    font-size:2.1rem;
+    line-height:1.1;
+    margin:2px 0 0 0;
+  }
+  .unit-sub{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:.7rem;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    margin-top:6px;
+  }
+
+  .story-line{
+    margin:26px 0 30px;
+    padding:14px 18px;
+    background:var(--paper-2);
+    border:1px solid var(--rule);
+    border-left:4px solid var(--u-color);
+    border-radius:4px;
+  }
+  .story-line .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:.63rem;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    display:block;
+    margin-bottom:4px;
+  }
+  .story-line .title{ font-style:italic; font-size:1.05rem; }
+  .page-num{ float:right; font-family:'IBM Plex Mono', monospace; font-size:.78rem; color:var(--ink-soft); }
+
+  h2.section-heading{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:.68rem;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    color:var(--u-color);
+    border-bottom:1px solid var(--rule);
+    padding-bottom:6px;
+    margin:34px 0 14px;
+  }
+
+  .step-row{
+    display:flex;
+    gap:14px;
+    padding:10px 0;
+    border-bottom:1px dashed var(--rule);
+    align-items:flex-start;
+  }
+  .step-row:last-child{ border-bottom:none; }
+  .step-letter{
+    width:24px; height:24px;
+    border-radius:6px;
+    background:var(--u-color);
+    color:#fff;
+    font-family:'IBM Plex Mono', monospace;
+    font-weight:500;
+    font-size:.78rem;
+    display:flex; align-items:center; justify-content:center;
+    flex-shrink:0;
+    margin-top:1px;
+  }
+  .step-text{ font-size:.96rem; line-height:1.45; flex:1; }
+  .step-page{ font-family:'IBM Plex Mono', monospace; font-size:.78rem; color:var(--ink-soft); flex-shrink:0; padding-top:2px; }
+
+  .grammar-block{
+    margin-top:8px;
+  }
+  .grammar-item{
+    padding:12px 0;
+    border-bottom:1px dashed var(--rule);
+  }
+  .grammar-item:last-child{ border-bottom:none; }
+  .grammar-item .g-label{
+    font-weight:600;
+    font-size:.9rem;
+  }
+  .grammar-item .g-example{
+    font-style:italic;
+    color:var(--ink-soft);
+    margin-top:3px;
+    font-size:.93rem;
+    line-height:1.5;
+  }
+
+  .zwischenspiel-title{ font-style:italic; font-size:1.05rem; }
+
+  footer.credits{
+    margin-top:50px;
+    padding-top:16px;
+    border-top:1px solid var(--rule);
+    font-family:'IBM Plex Mono', monospace;
+    font-size:.65rem;
+    color:var(--ink-soft);
+    letter-spacing:.04em;
+  }
+
+  /* language layer visibility */
+  body:not(.en) .en-text{ display:none; }
+  body.en .de-text{ display:none; }
+
+  @media (max-width: 760px){
+    body{ flex-direction:column; }
+    #sidebar{ width:100%; height:auto; position:relative; border-right:none; border-bottom:1px solid var(--rule); }
+    main{ padding:30px 20px 60px; }
+  }
+</style>
+</head>
+<body>
+
+<aside id="sidebar">
+  <div class="brand">Schritte international 5<small>Kursbuch · Inhalt · Niveau B1/1</small></div>
+
+  <div id="toggle-wrap">
+    <span class="lang-lbl active" data-lbl="de">DE</span>
+    <div class="switch" id="langSwitch"><div class="knob"></div></div>
+    <span class="lang-lbl" data-lbl="en">EN</span>
+  </div>
+
+  <nav>
+    <ul id="unitList"></ul>
+  </nav>
+</aside>
+
+<main id="main"></main>
+
+<script>
+const UNITS = [
+  {
+    n:1, color:"var(--u1)",
+    title_de:"Glück im Alltag", title_en:"Everyday luck",
+    story:{ title_de:"Schutzengel", title_en:"Guardian angel", page:8 },
+    steps:[
+      {l:"A", de:"über Vergangenes berichten", en:"Reporting on things that happened in the past", p:10},
+      {l:"B", de:"Zeitungsmeldungen — eine Zeitungsmeldung schreiben", en:"Newspaper reports — writing a newspaper report", p:12},
+      {l:"C", de:"Radioreportage: Glücksmomente — über Glücksmomente sprechen", en:"Radio report: Moments of luck — talking about moments of luck", p:14},
+      {l:"D", de:"Artikel: Lebensgeschichte — eine Lebensgeschichte erzählen", en:"Article: A life story — telling a life story", p:15},
+      {l:"E", de:"über Glücksbringer sprechen", en:"Talking about lucky charms", p:16},
+    ],
+    ubersicht_p:17,
+    zwischenspiel:{ de:"Spiele Leben", en:"Games of life", p:18 },
+    grammar:[
+      {label:"Konjunktion als", en:"Conjunction \"als\" (when)", de_ex:"Das ist vor ein paar Jahren passiert, als ich in Österreich war.", en_ex:"That happened a few years ago, when I was in Austria."},
+      {label:"Präteritum", en:"Simple past", de_ex:"bringen – brachte", en_ex:"to bring – brought"},
+      {label:"Plusquamperfekt", en:"Past perfect", de_ex:"er war umgefallen, er hatte gefunden, …", en_ex:"he had fallen over, he had found, …"},
+    ]
+  },
+  {
+    n:2, color:"var(--u2)",
+    title_de:"Unterhaltung", title_en:"Entertainment",
+    story:{ title_de:"Star Wars", title_en:"Star Wars", page:20 },
+    steps:[
+      {l:"A", de:"Gegensätze ausdrücken", en:"Expressing contrasts", p:22},
+      {l:"B", de:"Dinge und Personen beschreiben 1", en:"Describing things and people 1", p:23},
+      {l:"C", de:"Dinge und Personen beschreiben 2", en:"Describing things and people 2", p:24},
+      {l:"D", de:"Fernsehprogramm — einen Konsens finden", en:"TV listings — reaching a consensus", p:26},
+      {l:"E", de:"einen Krimi lesen", en:"Reading a crime story", p:28},
+    ],
+    ubersicht_p:29,
+    zwischenspiel:{ de:"Nicht einfach, aber einfach gut", en:"Not simple, but simply good", p:30 },
+    grammar:[
+      {label:"Konjunktion obwohl", en:"Conjunction \"obwohl\" (although)", de_ex:"Und jetzt soll ich auch noch bezahlen, obwohl ich gar keinen Hunger habe.", en_ex:"And now I'm supposed to pay too, even though I'm not hungry at all."},
+      {label:"Relativpronomen und Relativsatz", en:"Relative pronoun and relative clause", de_ex:"Das ist das Essen, das mir am wenigsten schmeckt.", en_ex:"That's the food I like the least."},
+      {label:"Gradpartikel", en:"Degree particles", de_ex:"ziemlich, …", en_ex:"fairly / quite, …"},
+    ]
+  },
+  {
+    n:3, color:"var(--u3)",
+    title_de:"Fit bleiben", title_en:"Staying fit",
+    story:{ title_de:"Bandscheiben", title_en:"Spinal discs", page:32 },
+    steps:[
+      {l:"A", de:"Entspannungsübungen machen und beschreiben", en:"Doing and describing relaxation exercises", p:34},
+      {l:"B", de:"Ratschläge und Empfehlungen geben", en:"Giving advice and recommendations", p:35},
+      {l:"C", de:"Beim Arzt — einen Vorgang beschreiben", en:"At the doctor's — describing a procedure", p:36},
+      {l:"D", de:"Artikel: Gesund leben — Fragebogen „Gesundheit“", en:"Article: Living healthily — Questionnaire \"Health\"", p:37},
+      {l:"E", de:"Radioquiz: Aus der Wissenschaft", en:"Radio quiz: From the world of science", p:38},
+    ],
+    ubersicht_p:39,
+    zwischenspiel:{ de:"Operation Schönheit", en:"Operation Beauty", p:40 },
+    grammar:[
+      {label:"Genitiv", en:"Genitive", de_ex:"die Entspannung des Rückens, die Hälfte unseres Kurses, …", en_ex:"the relaxation of the back, half of our course, …"},
+      {label:"Passiv Präsens", en:"Present passive", de_ex:"… und am Ende werden Sie dann trotzdem operiert.", en_ex:"… and in the end you'll be operated on anyway."},
+      {label:"Passiv Präsens mit Modalverb", en:"Present passive with modal verb", de_ex:"Ihr Knie muss geröntgt werden.", en_ex:"Your knee needs to be X‑rayed."},
+    ]
+  },
+  {
+    n:4, color:"var(--u4)",
+    title_de:"Sprachen", title_en:"Languages",
+    story:{ title_de:"Göhreschdase?", title_en:"Göhreschdase? (dialect for \"Is that yours?\")", page:42 },
+    steps:[
+      {l:"A", de:"über Irreales sprechen 1", en:"Talking about the hypothetical 1", p:44},
+      {l:"B", de:"etwas nicht verstehen und nachfragen", en:"Not understanding something and asking again", p:45},
+      {l:"C", de:"etwas begründen — Wichtigkeit ausdrücken", en:"Giving reasons for something — expressing importance", p:46},
+      {l:"D", de:"einen literarischen Text verstehen", en:"Understanding a literary text", p:48},
+    ],
+    ubersicht_p:49,
+    zwischenspiel:{ de:"Klingel! Klingel! Endlich Pause!", en:"Ring! Ring! Break time at last!", p:50 },
+    grammar:[
+      {label:"Konjunktion wenn (irrealer Bedingungssatz)", en:"Conjunction \"wenn\" (unreal conditional)", de_ex:"Wenn Sie etwas deutlicher sprechen würden, könnte ich Sie besser verstehen.", en_ex:"If you spoke a bit more clearly, I could understand you better."},
+      {label:"Präposition wegen", en:"Preposition \"wegen\" (because of)", de_ex:"wegen meines Freundes", en_ex:"because of my friend"},
+      {label:"Konjunktionen", en:"Conjunctions", de_ex:"darum, deswegen, …", en_ex:"therefore, that's why, …"},
+    ]
+  },
+  {
+    n:5, color:"var(--u5)",
+    title_de:"Beruf, Job und Praktikum", title_en:"Career, jobs and internships",
+    story:{ title_de:"Pizza mafioso", title_en:"Pizza mafioso", page:52 },
+    steps:[
+      {l:"A", de:"Sachtext: Teamarbeit — über Teamarbeit sprechen", en:"Informational text: Teamwork — talking about teamwork", p:54},
+      {l:"B", de:"über Geschäftsideen sprechen", en:"Talking about business ideas", p:55},
+      {l:"C", de:"sich schriftlich bewerben", en:"Applying in writing", p:56},
+      {l:"D", de:"sich telefonisch bewerben", en:"Applying by phone", p:57},
+      {l:"E", de:"Artikel: Kreativitätstechniken", en:"Article: Creativity techniques", p:58},
+    ],
+    ubersicht_p:59,
+    zwischenspiel:{ de:"Lust, mitzusingen?", en:"Feel like singing along?", p:60 },
+    grammar:[
+      {label:"Infinitiv mit zu", en:"Infinitive with \"zu\"", de_ex:"Ich habe keine Lust, Ärger zu bekommen.", en_ex:"I don't feel like getting into trouble."},
+      {label:"Verb: nicht/nur brauchen + Infinitiv mit zu", en:"Verb: not/only need + infinitive with \"zu\"", de_ex:"Sie brauchen nicht weiterzureden.", en_ex:"You don't need to keep talking."},
+    ]
+  },
+  {
+    n:6, color:"var(--u6)",
+    title_de:"Kundenwünsche", title_en:"Customer wishes",
+    story:{ title_de:"Kundenkontakt", title_en:"Customer contact", page:62 },
+    steps:[
+      {l:"A", de:"über Urlaubswünsche sprechen — über eine Statistik sprechen", en:"Talking about holiday wishes — talking about a statistic", p:64},
+      {l:"B", de:"über gute Vorsätze sprechen", en:"Talking about good resolutions", p:65},
+      {l:"C", de:"Reportage „Traumurlaub“ — über Reiseziele sprechen", en:"Report \"Dream holiday\" — talking about travel destinations", p:66},
+      {l:"D", de:"Verkaufsgespräche führen", en:"Conducting sales conversations", p:68},
+    ],
+    ubersicht_p:69,
+    zwischenspiel:{ de:"Schnell, schnell …", en:"Quick, quick …", p:70 },
+    grammar:[
+      {label:"um … zu + Infinitiv", en:"\"in order to\" + infinitive", de_ex:"Man muss heute direkt zum Kunden gehen, um Erfolg zu haben.", en_ex:"Nowadays you have to go straight to the customer in order to be successful."},
+      {label:"Konjunktion damit", en:"Conjunction \"damit\" (so that)", de_ex:"Herr Kelmendi fährt mit seiner Familie im Sommer immer in seine Heimat, damit seine Kinder die Großeltern sehen können.", en_ex:"Mr Kelmendi always travels to his home country with his family in summer, so that his children can see their grandparents."},
+      {label:"statt … zu + Infinitiv", en:"\"instead of\" + infinitive", de_ex:"Man muss was tun, statt nur zu reden.", en_ex:"You have to do something instead of just talking."},
+      {label:"ohne … zu + Infinitiv", en:"\"without\" + infinitive", de_ex:"Die Sekretärin soll nichts entscheiden, ohne die Chefin vorher zu fragen.", en_ex:"The secretary shouldn't decide anything without asking the boss first."},
+      {label:"Ausdrücke mit es", en:"Expressions with \"es\"", de_ex:"Es regnet. Es ist einfach …", en_ex:"It's raining. It's simply …"},
+    ]
+  },
+  {
+    n:7, color:"var(--u7)",
+    title_de:"Rund ums Wohnen", title_en:"All about housing",
+    story:{ title_de:"Die Traumwohnung", title_en:"The dream apartment", page:72 },
+    steps:[
+      {l:"A", de:"über eine Traumwohnung sprechen und übertreiben", en:"Talking about a dream apartment and exaggerating", p:74},
+      {l:"B", de:"über Irreales sprechen 2", en:"Talking about the hypothetical 2", p:75},
+      {l:"C", de:"Mit Nachbarn leben — Konflikte lösen", en:"Living with neighbours — resolving conflicts", p:76},
+      {l:"D", de:"Zeitschriftenartikel: Wohnwürfel", en:"Magazine article: The living cube", p:77},
+      {l:"E", de:"Radioreportage: Wochenendbeziehungen", en:"Radio report: Weekend relationships", p:78},
+    ],
+    ubersicht_p:79,
+    zwischenspiel:{ de:"Mach, Opa, mach!", en:"Go on, grandpa, go on!", p:80 },
+    grammar:[
+      {label:"Zweiteilige Konjunktionen: nicht nur … sondern auch …", en:"Two-part conjunctions: \"not only … but also …\"", de_ex:"Die Wohnung ist nämlich nicht nur sehr groß, sondern auch sehr billig.", en_ex:"You see, the apartment isn't just very big, it's also very cheap."},
+      {label:"zwar … aber …", en:"\"admittedly … but …\"", de_ex:"Ich brauche zwar viel Platz, aber doch keine neun Zimmer.", en_ex:"I do need a lot of space, but not nine rooms."},
+      {label:"entweder … oder …", en:"\"either … or …\"", de_ex:"Entweder ich träume, oder ich bin verrückt geworden.", en_ex:"Either I'm dreaming, or I've gone crazy."},
+      {label:"Konjunktiv II: Irreale Wünsche", en:"Subjunctive II: unreal wishes", de_ex:"Hätte ich doch bloß weitergeträumt!", en_ex:"If only I had kept on dreaming!"},
+      {label:"Verben mit Präpositionen", en:"Verbs with prepositions", de_ex:"", en_ex:""},
+      {label:"Präposition trotz", en:"Preposition \"trotz\" (despite)", de_ex:"trotz des großen Angebots", en_ex:"despite the large offer"},
+    ]
+  },
+];
+
+const list = document.getElementById('unitList');
+const main = document.getElementById('main');
+
+UNITS.forEach((u, idx) => {
+  const li = document.createElement('li');
+  li.innerHTML = `
+    <a class="unit-link" data-idx="${idx}" style="--u-color:${u.color}">
+      <div class="badge">${u.n}</div>
+      <div class="label">
+        <span class="de-text">${u.title_de}</span><span class="en-text">${u.title_en}</span>
+        <span class="num">Einheit ${u.n}</span>
+      </div>
+    </a>`;
+  list.appendChild(li);
+
+  const page = document.createElement('section');
+  page.className = 'unit-page';
+  page.id = `unit-${idx}`;
+  page.style.setProperty('--u-color', u.color);
+
+  const stepsHtml = u.steps.map(s => `
+    <div class="step-row">
+      <div class="step-letter">${s.l}</div>
+      <div class="step-text"><span class="de-text">${s.de}</span><span class="en-text">${s.en}</span></div>
+      <div class="step-page">S. ${s.p}</div>
+    </div>`).join('');
+
+  const grammarHtml = u.grammar.map(g => `
+    <div class="grammar-item">
+      <div class="g-label"><span class="de-text">${g.label}</span><span class="en-text">${g.en}</span></div>
+      ${g.de_ex ? `<div class="g-example"><span class="de-text">${g.de_ex}</span><span class="en-text">${g.en_ex}</span></div>` : ''}
+    </div>`).join('');
+
+  page.innerHTML = `
+    <div class="unit-header">
+      <div class="badge-lg">${u.n}</div>
+      <div>
+        <h1 class="unit-title"><span class="de-text">${u.title_de}</span><span class="en-text">${u.title_en}</span></h1>
+        <div class="unit-sub"><span class="de-text">Einheit ${u.n}</span><span class="en-text">Unit ${u.n}</span></div>
+      </div>
+    </div>
+
+    <div class="story-line">
+      <span class="page-num">S. ${u.story.page}</span>
+      <span class="eyebrow"><span class="de-text">Foto-Hörgeschichte</span><span class="en-text">Photo audio-story</span></span>
+      <span class="title"><span class="de-text">${u.story.title_de}</span><span class="en-text">${u.story.title_en}</span></span>
+    </div>
+
+    <h2 class="section-heading"><span class="de-text">Schritt</span><span class="en-text">Step</span></h2>
+    ${stepsHtml}
+
+    <h2 class="section-heading"><span class="de-text">Übersicht</span><span class="en-text">Overview</span></h2>
+    <div class="step-row">
+      <div class="step-text"><span class="de-text">Grammatik, Wichtige Wendungen</span><span class="en-text">Grammar, key expressions</span></div>
+      <div class="step-page">S. ${u.ubersicht_p}</div>
+    </div>
+
+    <h2 class="section-heading"><span class="de-text">Zwischenspiel</span><span class="en-text">Interlude</span></h2>
+    <div class="story-line">
+      <span class="page-num">S. ${u.zwischenspiel.p}</span>
+      <span class="zwischenspiel-title"><span class="de-text">${u.zwischenspiel.de}</span><span class="en-text">${u.zwischenspiel.en}</span></span>
+    </div>
+
+    <h2 class="section-heading"><span class="de-text">Grammatik</span><span class="en-text">Grammar</span></h2>
+    <div class="grammar-block">${grammarHtml}</div>
+
+    <footer class="credits">Schritte international 5 · Kursbuch B1/1 · Inhalt digitalisiert</footer>
+  `;
+  main.appendChild(page);
+});
+
+function showUnit(idx){
+  document.querySelectorAll('.unit-page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.unit-link').forEach(a => a.classList.remove('active'));
+  document.getElementById(`unit-${idx}`).classList.add('active');
+  document.querySelector(`.unit-link[data-idx="${idx}"]`).classList.add('active');
+}
+
+document.querySelectorAll('.unit-link').forEach(a => {
+  a.addEventListener('click', () => showUnit(a.dataset.idx));
+});
+showUnit(0);
+
+const langSwitch = document.getElementById('langSwitch');
+const lblDe = document.querySelector('.lang-lbl[data-lbl="de"]');
+const lblEn = document.querySelector('.lang-lbl[data-lbl="en"]');
+langSwitch.addEventListener('click', () => {
+  document.body.classList.toggle('en');
+  const isEn = document.body.classList.contains('en');
+  lblDe.classList.toggle('active', !isEn);
+  lblEn.classList.toggle('active', isEn);
+});
+</script>
+</body>
+</html>
